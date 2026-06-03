@@ -58,19 +58,19 @@ export default function Dashboard() {
     switch (status) {
       case 'confirmed':
         return (
-          <span className="bg-emerald-950/40 text-emerald-450 border border-emerald-900/40 text-[9px] font-extrabold uppercase px-2 py-0.5 rounded-full">
+          <span className="text-[10px] font-extrabold uppercase px-2 py-0.5 rounded-full" style={{ backgroundColor: '#e8f5e9', color: '#2e7d32' }}>
             Confirmed
           </span>
         );
       case 'rejected':
         return (
-          <span className="bg-red-950/40 text-red-450 border border-red-900/40 text-[9px] font-extrabold uppercase px-2 py-0.5 rounded-full">
+          <span className="text-[10px] font-extrabold uppercase px-2 py-0.5 rounded-full" style={{ backgroundColor: '#fce4ec', color: '#c62828' }}>
             Rejected
           </span>
         );
       default:
         return (
-          <span className="bg-yellow-950/40 text-yellow-450 border border-yellow-900/40 text-[9px] font-extrabold uppercase px-2 py-0.5 rounded-full">
+          <span className="text-[10px] font-extrabold uppercase px-2 py-0.5 rounded-full" style={{ backgroundColor: '#fdf0f0', color: '#2d5a9e', border: '1px solid #2d5a9e' }}>
             Pending
           </span>
         );
@@ -78,19 +78,19 @@ export default function Dashboard() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-900 text-white pb-12">
+    <div className="min-h-screen pb-12" style={{ backgroundColor: '#d4d8e0', color: '#1a2744' }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-8 gap-4">
           <div>
-            <h1 className="text-3xl font-extrabold tracking-tight">Welcome, {user?.name || 'Seller'}</h1>
-            <p className="mt-2 text-sm text-slate-400">Order management overview. Track spending, bookings, and draft quotes.</p>
+            <h1 className="text-3xl font-extrabold tracking-tight" style={{ color: '#1a2744' }}>Welcome, {user?.name || 'Seller'}</h1>
+            <p className="mt-2 text-sm" style={{ color: '#2d5a9e' }}>Order management overview. Track spending, bookings, and draft quotes.</p>
           </div>
         </div>
 
         {error && (
-          <div className="bg-red-950/30 border border-red-800 text-red-400 px-4 py-3 rounded-xl mb-8 text-sm">
+          <div className="bg-red-50 border border-red-200 text-red-750 px-4 py-3 rounded-xl mb-8 text-sm">
             {error}
           </div>
         )}
@@ -103,53 +103,54 @@ export default function Dashboard() {
         ) : (
           <div className="space-y-8">
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-              <div className="bg-slate-800 border border-slate-700 p-6 rounded-2xl shadow-md">
-                <span className="text-xs text-slate-400 font-bold uppercase tracking-wider block mb-1">Total Orders Placed</span>
-                <span className="text-3xl font-extrabold">{totalOrders}</span>
+              <div style={{ backgroundColor: '#fff', borderRadius: '16px', padding: '24px', borderTop: '4px solid #1a2744', boxShadow: '0 2px 12px rgba(26,39,68,0.10)' }}>
+                <span className="block mb-1" style={{ color: '#2d5a9e', fontSize: '0.8rem', textTransform: 'uppercase', fontWeight: '750' }}>Total Orders Placed</span>
+                <span style={{ color: '#1a2744', fontSize: '2rem', fontWeight: '800' }}>{totalOrders}</span>
               </div>
-              <div className="bg-slate-800 border border-slate-700 p-6 rounded-2xl shadow-md">
-                <span className="text-xs text-slate-405 font-bold uppercase tracking-wider block mb-1">Pending Orders</span>
-                <span className="text-3xl font-extrabold text-yellow-550">{pendingOrders}</span>
+              <div style={{ backgroundColor: '#fff', borderRadius: '16px', padding: '24px', borderTop: '4px solid #1a2744', boxShadow: '0 2px 12px rgba(26,39,68,0.10)' }}>
+                <span className="block mb-1" style={{ color: '#2d5a9e', fontSize: '0.8rem', textTransform: 'uppercase', fontWeight: '750' }}>Pending Orders</span>
+                <span style={{ color: '#1a2744', fontSize: '2rem', fontWeight: '800' }}>{pendingOrders}</span>
               </div>
-              <div className="bg-slate-800 border border-slate-700 p-6 rounded-2xl shadow-md">
-                <span className="text-xs text-slate-405 font-bold uppercase tracking-wider block mb-1">Total Spent</span>
-                <span className="text-2xl font-extrabold text-emerald-400">{formatINR(totalSpent)}</span>
+              <div style={{ backgroundColor: '#fff', borderRadius: '16px', padding: '24px', borderTop: '4px solid #1a2744', boxShadow: '0 2px 12px rgba(26,39,68,0.10)' }}>
+                <span className="block mb-1" style={{ color: '#2d5a9e', fontSize: '0.8rem', textTransform: 'uppercase', fontWeight: '750' }}>Total Spent</span>
+                <span style={{ color: '#1a2744', fontSize: '2rem', fontWeight: '800' }}>{formatINR(totalSpent)}</span>
               </div>
             </div>
 
             {/* Quick Action link */}
             <div>
-              <h2 className="text-lg font-bold mb-4 text-slate-350">Quick Actions</h2>
+              <h2 className="text-lg font-bold mb-4" style={{ color: '#1a2744' }}>Quick Actions</h2>
               <div className="grid grid-cols-1 gap-4">
                 <Link
                   to="/seller/browse"
-                  className="bg-slate-800 hover:bg-slate-750 border border-slate-700 rounded-2xl p-5 flex items-center justify-between transition-colors cursor-pointer group"
+                  className="flex items-center justify-between transition-all cursor-pointer group border border-transparent hover:border-[#e8a0b0] p-5 shadow-sm"
+                  style={{ backgroundColor: '#fff', borderRadius: '16px' }}
                 >
                   <div>
-                    <h3 className="font-bold text-sm text-slate-200">Browse Catalog & Place Order</h3>
-                    <p className="text-xs text-slate-405 mt-1">Search chemical compounds, configure weights or volumes, preview costs, and submit order.</p>
+                    <h3 className="font-bold text-sm" style={{ color: '#1a2744' }}>Browse Catalog & Place Order</h3>
+                    <p className="text-xs mt-1" style={{ color: '#2d5a9e' }}>Search chemical compounds, configure weights or volumes, preview costs, and submit order.</p>
                   </div>
-                  <span className="text-indigo-400 group-hover:translate-x-1.5 transition-transform font-bold text-lg">&rarr;</span>
+                  <span className="group-hover:translate-x-1.5 transition-transform font-bold text-lg" style={{ color: '#2d5a9e' }}>&rarr;</span>
                 </Link>
               </div>
             </div>
 
             {/* Recent Orders table */}
             <div>
-              <h2 className="text-lg font-bold mb-4 text-slate-350">My Recent Orders</h2>
-              <div className="bg-slate-800 border border-slate-700 rounded-2xl overflow-hidden shadow-md">
+              <h2 className="text-lg font-bold mb-4" style={{ color: '#1a2744' }}>My Recent Orders</h2>
+              <div className="rounded-2xl overflow-hidden shadow-md border border-slate-300" style={{ backgroundColor: '#fff' }}>
                 <div className="overflow-x-auto">
                   <table className="w-full text-left border-collapse text-xs">
                     <thead>
-                      <tr className="bg-slate-850 border-b border-slate-700">
-                        <th className="px-6 py-3.5 font-bold text-slate-400 uppercase tracking-wider">Order ID</th>
-                        <th className="px-6 py-3.5 font-bold text-slate-400 uppercase tracking-wider">Date</th>
-                        <th className="px-6 py-3.5 font-bold text-slate-400 uppercase tracking-wider text-right">Amount</th>
-                        <th className="px-6 py-3.5 font-bold text-slate-400 uppercase tracking-wider text-center">Status</th>
-                        <th className="px-6 py-3.5 font-bold text-slate-400 uppercase tracking-wider text-center">Actions</th>
+                      <tr style={{ backgroundColor: '#1a2744', color: '#fff' }}>
+                        <th className="px-6 py-3.5 font-bold uppercase tracking-wider">Order ID</th>
+                        <th className="px-6 py-3.5 font-bold uppercase tracking-wider">Date</th>
+                        <th className="px-6 py-3.5 font-bold uppercase tracking-wider text-right">Amount</th>
+                        <th className="px-6 py-3.5 font-bold uppercase tracking-wider text-center">Status</th>
+                        <th className="px-6 py-3.5 font-bold uppercase tracking-wider text-center">Actions</th>
                       </tr>
                     </thead>
-                    <tbody className="divide-y divide-slate-700">
+                    <tbody className="divide-y divide-slate-200">
                       {recentOrders.length === 0 ? (
                         <tr>
                           <td colSpan="5" className="px-6 py-8 text-center text-slate-500">
@@ -157,18 +158,19 @@ export default function Dashboard() {
                           </td>
                         </tr>
                       ) : (
-                        recentOrders.map((order) => (
-                          <tr key={order.id} className="hover:bg-slate-750/30 transition-colors">
-                            <td className="px-6 py-4 font-mono font-bold text-slate-200">#{order.id}</td>
-                            <td className="px-6 py-4 text-slate-400">{formatDate(order.created_at)}</td>
-                            <td className="px-6 py-4 text-right font-semibold text-emerald-400 font-mono">
+                        recentOrders.map((order, idx) => (
+                          <tr key={order.id} className="transition-colors" style={{ backgroundColor: idx % 2 === 0 ? '#ffffff' : '#fdf0f0', color: '#1a2744' }}>
+                            <td className="px-6 py-4 font-mono font-bold">#{order.id}</td>
+                            <td className="px-6 py-4" style={{ color: '#2d5a9e' }}>{formatDate(order.created_at)}</td>
+                            <td className="px-6 py-4 text-right font-semibold font-mono" style={{ color: '#1a2744' }}>
                               {formatINR(Number(order.total_amount_inr))}
                             </td>
                             <td className="px-6 py-4 text-center">{getStatusBadge(order.status)}</td>
                             <td className="px-6 py-4 text-center">
                               <Link
                                 to="/seller/orders"
-                                className="text-indigo-400 hover:text-indigo-350 font-bold"
+                                className="font-bold"
+                                style={{ color: '#2d5a9e' }}
                               >
                                 View details
                               </Link>

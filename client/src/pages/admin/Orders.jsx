@@ -73,57 +73,65 @@ export default function Orders() {
     switch (status) {
       case 'confirmed':
         return (
-          <span className="inline-block bg-emerald-950/40 text-emerald-400 border border-emerald-800 text-[10px] font-extrabold uppercase tracking-wider px-3 py-1 rounded-full">
+          <span className="inline-block text-[10px] font-extrabold uppercase tracking-wider px-3 py-1 rounded-full" style={{ backgroundColor: '#e8f5e9', color: '#2e7d32' }}>
             Confirmed
           </span>
         );
       case 'rejected':
         return (
-          <span className="inline-block bg-red-950/40 text-red-400 border border-red-850 text-[10px] font-extrabold uppercase tracking-wider px-3 py-1 rounded-full">
+          <span className="inline-block text-[10px] font-extrabold uppercase tracking-wider px-3 py-1 rounded-full" style={{ backgroundColor: '#fce4ec', color: '#c62828' }}>
             Rejected
           </span>
         );
       default:
         return (
-          <span className="inline-block bg-yellow-950/40 text-yellow-400 border border-yellow-800 text-[10px] font-extrabold uppercase tracking-wider px-3 py-1 rounded-full animate-pulse">
+          <span className="inline-block text-[10px] font-extrabold uppercase tracking-wider px-3 py-1 rounded-full animate-pulse" style={{ backgroundColor: '#fdf0f0', color: '#2d5a9e', border: '1px solid #2d5a9e' }}>
             Pending
           </span>
         );
     }
   };
 
+  const getBorderLeftColor = (status) => {
+    switch (status) {
+      case 'confirmed': return '#2e7d32';
+      case 'rejected': return '#c62828';
+      default: return '#2d5a9e';
+    }
+  };
+
   return (
-    <div className="min-h-screen bg-slate-900 text-white pb-12">
+    <div className="min-h-screen pb-12" style={{ backgroundColor: '#d4d8e0', color: '#1a2744' }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         
         {/* Header */}
         <div className="mb-8">
-          <h1 className="text-3xl font-extrabold tracking-tight">Quotations & Orders</h1>
-          <p className="mt-2 text-sm text-slate-400">Review seller quotation requests, approve/reject orders and inspect unit details.</p>
+          <h1 className="text-3xl font-extrabold tracking-tight" style={{ color: '#1a2744' }}>Quotations & Orders</h1>
+          <p className="mt-2 text-sm" style={{ color: '#2d5a9e' }}>Review seller quotation requests, approve/reject orders and inspect unit details.</p>
         </div>
 
         {/* Stats Section */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
-          <div className="bg-slate-800 border border-slate-700 p-5 rounded-2xl">
-            <span className="text-xs text-slate-400 font-bold uppercase tracking-wider block mb-1">Total Orders</span>
-            <span className="text-3xl font-extrabold">{stats.total}</span>
+          <div style={{ backgroundColor: '#fff', borderRadius: '16px', padding: '20px', borderTop: '4px solid #1a2744', boxShadow: '0 2px 12px rgba(26,39,68,0.10)' }}>
+            <span className="block mb-1" style={{ color: '#2d5a9e', fontSize: '0.8rem', textTransform: 'uppercase', fontWeight: '750' }}>Total Orders</span>
+            <span style={{ color: '#1a2744', fontSize: '2rem', fontWeight: '800' }}>{stats.total}</span>
           </div>
-          <div className="bg-slate-850 border border-yellow-900/30 p-5 rounded-2xl">
-            <span className="text-xs text-yellow-400/80 font-bold uppercase tracking-wider block mb-1">Pending approval</span>
-            <span className="text-3xl font-extrabold text-yellow-450">{stats.pending}</span>
+          <div style={{ backgroundColor: '#fff', borderRadius: '16px', padding: '20px', borderTop: '4px solid #1a2744', boxShadow: '0 2px 12px rgba(26,39,68,0.10)' }}>
+            <span className="block mb-1" style={{ color: '#2d5a9e', fontSize: '0.8rem', textTransform: 'uppercase', fontWeight: '750' }}>Pending approval</span>
+            <span style={{ color: '#1a2744', fontSize: '2rem', fontWeight: '800' }}>{stats.pending}</span>
           </div>
-          <div className="bg-slate-850 border border-emerald-900/30 p-5 rounded-2xl">
-            <span className="text-xs text-emerald-400/80 font-bold uppercase tracking-wider block mb-1">Confirmed</span>
-            <span className="text-3xl font-extrabold text-emerald-450">{stats.confirmed}</span>
+          <div style={{ backgroundColor: '#fff', borderRadius: '16px', padding: '20px', borderTop: '4px solid #1a2744', boxShadow: '0 2px 12px rgba(26,39,68,0.10)' }}>
+            <span className="block mb-1" style={{ color: '#2d5a9e', fontSize: '0.8rem', textTransform: 'uppercase', fontWeight: '750' }}>Confirmed</span>
+            <span style={{ color: '#1a2744', fontSize: '2rem', fontWeight: '800' }}>{stats.confirmed}</span>
           </div>
-          <div className="bg-slate-850 border border-red-900/30 p-5 rounded-2xl">
-            <span className="text-xs text-red-400/80 font-bold uppercase tracking-wider block mb-1">Rejected</span>
-            <span className="text-3xl font-extrabold text-red-450">{stats.rejected}</span>
+          <div style={{ backgroundColor: '#fff', borderRadius: '16px', padding: '20px', borderTop: '4px solid #1a2744', boxShadow: '0 2px 12px rgba(26,39,68,0.10)' }}>
+            <span className="block mb-1" style={{ color: '#2d5a9e', fontSize: '0.8rem', textTransform: 'uppercase', fontWeight: '750' }}>Rejected</span>
+            <span style={{ color: '#1a2744', fontSize: '2rem', fontWeight: '800' }}>{stats.rejected}</span>
           </div>
         </div>
 
         {error && (
-          <div className="bg-red-950/30 border border-red-800 text-red-400 px-4 py-3 rounded-xl mb-6">
+          <div className="bg-red-50 border border-red-200 text-red-750 px-4 py-3 rounded-xl mb-6">
             {error}
           </div>
         )}
@@ -134,30 +142,30 @@ export default function Orders() {
             <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-indigo-500"></div>
           </div>
         ) : orders.length === 0 ? (
-          <div className="bg-slate-800 border border-slate-750 text-center py-12 rounded-2xl text-slate-500">
+          <div className="text-center py-12 rounded-2xl text-slate-500" style={{ backgroundColor: '#fff', border: '1px solid #d4d8e0' }}>
             No orders placed in system.
           </div>
         ) : (
           <div className="space-y-6">
             {orders.map((order) => (
-              <div key={order.id} className="bg-slate-800 border border-slate-700 rounded-2xl shadow-lg overflow-hidden">
+              <div key={order.id} className="shadow-lg overflow-hidden mb-6" style={{ backgroundColor: '#fff', borderRadius: '16px', borderLeft: `4px solid ${getBorderLeftColor(order.status)}` }}>
                 
                 {/* Header info */}
-                <div className="p-6 border-b border-slate-700/60 bg-slate-800 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+                <div className="p-6 border-b border-slate-100 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4" style={{ backgroundColor: '#fff' }}>
                   <div className="space-y-1">
                     <div className="flex items-center space-x-3">
-                      <span className="font-mono text-base font-bold text-slate-200">Order #{order.id}</span>
+                      <span className="font-mono text-base" style={{ color: '#1a2744', fontWeight: '700' }}>Order #{order.id}</span>
                       {getStatusBadge(order.status)}
                     </div>
-                    <p className="text-xs text-slate-400">
-                      Seller: <span className="font-bold text-slate-300">{order.seller_name}</span> ({order.seller_email}) | Date: {formatDate(order.created_at)}
+                    <p className="text-xs" style={{ color: '#2d5a9e' }}>
+                      Seller: <span className="font-bold" style={{ color: '#1a2744' }}>{order.seller_name}</span> ({order.seller_email}) | Date: {formatDate(order.created_at)}
                     </p>
                   </div>
 
                   <div className="flex items-center space-x-6">
                     <div className="text-left lg:text-right">
                       <span className="block text-[10px] font-bold uppercase tracking-wider text-slate-500">Order Total</span>
-                      <span className="text-2xl font-extrabold text-emerald-400">{formatINR(Number(order.total_amount_inr))}</span>
+                      <span className="text-2xl font-extrabold" style={{ color: '#1a2744' }}>{formatINR(Number(order.total_amount_inr))}</span>
                     </div>
 
                     {/* Actions Panel */}
@@ -166,14 +174,16 @@ export default function Orders() {
                         <button
                           disabled={updatingId === order.id}
                           onClick={() => handleUpdateStatus(order.id, 'confirmed')}
-                          className="bg-emerald-600 hover:bg-emerald-500 disabled:opacity-50 text-white text-xs font-bold px-4.5 py-2 rounded-xl transition-all cursor-pointer shadow-md shadow-emerald-950/20"
+                          className="disabled:opacity-50 text-xs font-bold transition-all cursor-pointer"
+                          style={{ backgroundColor: '#1a2744', color: '#fff', borderRadius: '8px', padding: '8px 20px', border: 'none' }}
                         >
                           Confirm
                         </button>
                         <button
                           disabled={updatingId === order.id}
                           onClick={() => handleUpdateStatus(order.id, 'rejected')}
-                          className="bg-red-600 hover:bg-red-500 disabled:opacity-50 text-white text-xs font-bold px-4.5 py-2 rounded-xl transition-all cursor-pointer shadow-md shadow-red-950/20"
+                          className="disabled:opacity-50 text-xs font-bold transition-all cursor-pointer"
+                          style={{ backgroundColor: 'transparent', color: '#1a2744', border: '2px solid #1a2744', borderRadius: '8px', padding: '8px 20px' }}
                         >
                           Reject
                         </button>
@@ -184,9 +194,9 @@ export default function Orders() {
 
                 {/* Optional Notes */}
                 {order.notes && (
-                  <div className="px-6 py-3 border-b border-slate-700/40 text-xs bg-slate-850/20">
+                  <div className="px-6 py-3 border-b border-slate-100 text-xs" style={{ backgroundColor: '#fdf0f0', color: '#1a2744' }}>
                     <span className="font-bold text-slate-400 mr-2">Order Notes:</span>
-                    <span className="text-slate-300 italic">"{order.notes}"</span>
+                    <span className="italic">"{order.notes}"</span>
                   </div>
                 )}
 
@@ -194,30 +204,30 @@ export default function Orders() {
                 <div className="overflow-x-auto">
                   <table className="w-full text-left border-collapse text-xs">
                     <thead>
-                      <tr className="bg-slate-850 border-b border-slate-750">
-                        <th className="px-6 py-3 font-bold text-slate-400 uppercase tracking-wider">Product</th>
-                        <th className="px-6 py-3 font-bold text-slate-400 uppercase tracking-wider">Ordered Qty</th>
-                        <th className="px-6 py-3 font-bold text-slate-400 uppercase tracking-wider">Conversion / Stored Base</th>
-                        <th className="px-6 py-3 font-bold text-slate-400 uppercase tracking-wider text-right">Unit Price</th>
-                        <th className="px-6 py-3 font-bold text-slate-400 uppercase tracking-wider text-right">Line Total</th>
+                      <tr style={{ backgroundColor: '#1a2744', color: '#fff' }}>
+                        <th className="px-6 py-3 font-bold uppercase tracking-wider">Product</th>
+                        <th className="px-6 py-3 font-bold uppercase tracking-wider">Ordered Qty</th>
+                        <th className="px-6 py-3 font-bold uppercase tracking-wider">Conversion / Stored Base</th>
+                        <th className="px-6 py-3 font-bold uppercase tracking-wider text-right">Unit Price</th>
+                        <th className="px-6 py-3 font-bold uppercase tracking-wider text-right">Line Total</th>
                       </tr>
                     </thead>
-                    <tbody className="divide-y divide-slate-750 bg-slate-900/10">
-                      {order.items?.map((item) => (
-                        <tr key={item.id} className="hover:bg-slate-750/10 transition-colors">
-                          <td className="px-6 py-4 font-semibold text-slate-200">{item.product_name}</td>
-                          <td className="px-6 py-4 font-medium text-slate-300">
+                    <tbody className="divide-y divide-slate-200">
+                      {order.items?.map((item, idx) => (
+                        <tr key={item.id} className="transition-colors" style={{ backgroundColor: idx % 2 === 0 ? '#ffffff' : '#fdf0f0', color: '#1a2744' }}>
+                          <td className="px-6 py-4 font-semibold" style={{ color: '#1a2744' }}>{item.product_name}</td>
+                          <td className="px-6 py-4 font-medium" style={{ color: '#1a2744' }}>
                             {Number(item.ordered_quantity).toLocaleString(undefined, { maximumFractionDigits: 3 })} {item.ordered_unit}
                           </td>
                           <td className="px-6 py-4">
-                            <span className="bg-slate-900 border border-slate-700/60 text-[10px] text-slate-400 px-2 py-0.5 rounded font-mono">
+                            <span className="border text-[10px] px-2 py-0.5 rounded font-mono" style={{ backgroundColor: '#fff', color: '#2d5a9e', borderColor: '#d4d8e0' }}>
                               {Number(item.ordered_quantity).toLocaleString()} {item.ordered_unit} → {Number(item.base_quantity).toLocaleString()} {item.base_unit}
                             </span>
                           </td>
-                          <td className="px-6 py-4 text-right text-slate-300 font-mono">
+                          <td className="px-6 py-4 text-right font-mono" style={{ color: '#1a2744' }}>
                             {formatINR(Number(item.unit_price_inr))}/{item.ordered_unit}
                           </td>
-                          <td className="px-6 py-4 text-right font-bold text-emerald-400 font-mono">
+                          <td className="px-6 py-4 text-right font-bold font-mono" style={{ color: '#1a2744' }}>
                             {formatINR(Number(item.line_total_inr))}
                           </td>
                         </tr>

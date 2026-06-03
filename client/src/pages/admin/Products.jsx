@@ -144,18 +144,19 @@ export default function Products() {
   const categories = ['Chemicals', 'Solvents', 'Acids', 'Glassware'];
 
   return (
-    <div className="min-h-screen bg-slate-900 text-white">
+    <div className="min-h-screen" style={{ backgroundColor: '#d4d8e0', color: '#1a2744' }}>
       {/* Search and Action Bar */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-8 gap-4">
           <div>
-            <h1 className="text-3xl font-extrabold tracking-tight text-white">Product Management</h1>
-            <p className="mt-2 text-sm text-slate-400">View, create, edit and delete catalog products.</p>
+            <h1 className="text-3xl font-extrabold tracking-tight" style={{ color: '#1a2744' }}>Product Management</h1>
+            <p className="mt-2 text-sm" style={{ color: '#2d5a9e' }}>View, create, edit and delete catalog products.</p>
           </div>
           <div>
             <button
               onClick={handleOpenAdd}
-              className="bg-emerald-600 hover:bg-emerald-500 active:scale-95 text-white font-semibold px-5 py-2.5 rounded-xl shadow-lg shadow-emerald-950/20 transition-all duration-200 cursor-pointer"
+              className="active:scale-95 transition-all duration-200 cursor-pointer"
+              style={{ backgroundColor: '#1a2744', color: '#fff', borderRadius: '10px', padding: '10px 20px', fontWeight: '600', border: 'none' }}
             >
               + Add Product
             </button>
@@ -165,21 +166,23 @@ export default function Products() {
         {/* Filters */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
           <div>
-            <label className="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">Search Products</label>
+            <label className="block text-xs font-bold uppercase tracking-wider mb-1" style={{ color: '#2d5a9e' }}>Search Products</label>
             <input
               type="text"
               placeholder="Search by name or SKU..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-2.5 text-slate-200 placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              className="w-full outline-none focus:border-[#2d5a9e]"
+              style={{ border: '2px solid #d4d8e0', borderRadius: '10px', padding: '10px 14px', color: '#1a2744', backgroundColor: '#fff' }}
             />
           </div>
           <div>
-            <label className="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">Category Filter</label>
+            <label className="block text-xs font-bold uppercase tracking-wider mb-1" style={{ color: '#2d5a9e' }}>Category Filter</label>
             <select
               value={categoryFilter}
               onChange={(e) => setCategoryFilter(e.target.value)}
-              className="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-2.5 text-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              className="w-full outline-none focus:border-[#2d5a9e]"
+              style={{ border: '2px solid #d4d8e0', borderRadius: '10px', padding: '10px 14px', color: '#1a2744', backgroundColor: '#fff' }}
             >
               <option value="">All Categories</option>
               {categories.map(c => (
@@ -191,7 +194,7 @@ export default function Products() {
 
         {/* Global Error Banner */}
         {error && !showForm && (
-          <div className="bg-red-950/30 border border-red-800 text-red-400 px-4 py-3 rounded-xl mb-6">
+          <div className="bg-red-50 border border-red-200 text-red-750 px-4 py-3 rounded-xl mb-6">
             {error}
           </div>
         )}
@@ -202,22 +205,22 @@ export default function Products() {
             <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-indigo-500"></div>
           </div>
         ) : (
-          <div className="bg-slate-800 border border-slate-700 rounded-2xl overflow-hidden shadow-xl">
+          <div className="rounded-2xl overflow-hidden shadow-xl border border-slate-300" style={{ backgroundColor: '#fff' }}>
             <div className="overflow-x-auto">
               <table className="w-full text-left border-collapse">
                 <thead>
-                  <tr className="bg-slate-850/50 border-b border-slate-700">
-                    <th className="px-6 py-4 text-xs font-bold uppercase tracking-wider text-slate-400">Name</th>
-                    <th className="px-6 py-4 text-xs font-bold uppercase tracking-wider text-slate-400">SKU</th>
-                    <th className="px-6 py-4 text-xs font-bold uppercase tracking-wider text-slate-400">Category</th>
-                    <th className="px-6 py-4 text-xs font-bold uppercase tracking-wider text-slate-400">Base Unit</th>
-                    <th className="px-6 py-4 text-xs font-bold uppercase tracking-wider text-slate-400">Price (INR)</th>
-                    <th className="px-6 py-4 text-xs font-bold uppercase tracking-wider text-slate-400">Stock</th>
-                    <th className="px-6 py-4 text-xs font-bold uppercase tracking-wider text-slate-400">Compatible Units</th>
-                    <th className="px-6 py-4 text-xs font-bold uppercase tracking-wider text-slate-400 text-center">Actions</th>
+                  <tr style={{ backgroundColor: '#1a2744', color: '#fff' }}>
+                    <th className="px-6 py-4 text-xs font-bold uppercase tracking-wider">Name</th>
+                    <th className="px-6 py-4 text-xs font-bold uppercase tracking-wider">SKU</th>
+                    <th className="px-6 py-4 text-xs font-bold uppercase tracking-wider">Category</th>
+                    <th className="px-6 py-4 text-xs font-bold uppercase tracking-wider">Base Unit</th>
+                    <th className="px-6 py-4 text-xs font-bold uppercase tracking-wider text-right">Price (INR)</th>
+                    <th className="px-6 py-4 text-xs font-bold uppercase tracking-wider text-right">Stock</th>
+                    <th className="px-6 py-4 text-xs font-bold uppercase tracking-wider">Compatible Units</th>
+                    <th className="px-6 py-4 text-xs font-bold uppercase tracking-wider text-center">Actions</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-slate-700">
+                <tbody className="divide-y divide-slate-200">
                   {filteredProducts.length === 0 ? (
                     <tr>
                       <td colSpan="8" className="px-6 py-12 text-center text-slate-500">
@@ -225,27 +228,27 @@ export default function Products() {
                       </td>
                     </tr>
                   ) : (
-                    filteredProducts.map((product) => (
-                      <tr key={product.id} className="hover:bg-slate-750/30 transition-colors duration-150">
+                    filteredProducts.map((product, idx) => (
+                      <tr key={product.id} className="transition-colors duration-150" style={{ backgroundColor: idx % 2 === 0 ? '#ffffff' : '#fdf0f0', color: '#1a2744' }}>
                         <td className="px-6 py-4">
-                          <div className="font-semibold text-slate-100">{product.name}</div>
+                          <div className="font-semibold text-slate-905">{product.name}</div>
                           {product.description && (
-                            <div className="text-xs text-slate-400 max-w-xs truncate">{product.description}</div>
+                            <div className="text-xs max-w-xs truncate" style={{ color: '#2d5a9e' }}>{product.description}</div>
                           )}
                         </td>
-                        <td className="px-6 py-4 font-mono text-xs text-indigo-400">{product.sku || 'N/A'}</td>
-                        <td className="px-6 py-4 text-sm text-slate-300">{product.category || 'Uncategorized'}</td>
-                        <td className="px-6 py-4 text-sm font-medium text-slate-400">{product.base_unit}</td>
-                        <td className="px-6 py-4 font-semibold text-emerald-400">
-                          {formatINR(Number(product.base_price_per_unit))} <span className="text-xs font-medium text-slate-400">/ {product.base_unit}</span>
+                        <td className="px-6 py-4 font-mono text-xs" style={{ color: '#2d5a9e' }}>{product.sku || 'N/A'}</td>
+                        <td className="px-6 py-4 text-sm" style={{ color: '#1a2744' }}>{product.category || 'Uncategorized'}</td>
+                        <td className="px-6 py-4 text-sm font-medium" style={{ color: '#2d5a9e' }}>{product.base_unit}</td>
+                        <td className="px-6 py-4 font-semibold text-right" style={{ color: '#1a2744' }}>
+                          {formatINR(Number(product.base_price_per_unit))} <span className="text-xs font-medium" style={{ color: '#2d5a9e' }}>/ {product.base_unit}</span>
                         </td>
-                        <td className="px-6 py-4 text-sm text-slate-200">
-                          {Number(product.stock_quantity).toLocaleString(undefined, { maximumFractionDigits: 2 })} <span className="text-xs text-slate-400 font-medium">{product.base_unit}</span>
+                        <td className="px-6 py-4 text-sm text-right" style={{ color: '#1a2744' }}>
+                          {Number(product.stock_quantity).toLocaleString(undefined, { maximumFractionDigits: 2 })} <span className="text-xs font-medium" style={{ color: '#2d5a9e' }}>{product.base_unit}</span>
                         </td>
                         <td className="px-6 py-4">
                           <div className="flex flex-wrap gap-1.5">
                             {product.compatible_units?.map(u => (
-                              <span key={u} className="bg-slate-700 text-slate-300 px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider border border-slate-650">
+                              <span key={u} className="px-2 py-0.5 font-bold uppercase tracking-wider" style={{ backgroundColor: '#e8a0b0', color: '#1a2744', borderRadius: '999px', fontSize: '0.75rem' }}>
                                 {u}
                               </span>
                             ))}
@@ -255,13 +258,15 @@ export default function Products() {
                           <div className="flex items-center justify-center space-x-3">
                             <button
                               onClick={() => handleOpenEdit(product)}
-                              className="bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-semibold px-3 py-1.5 rounded-lg transition-colors cursor-pointer"
+                              className="text-xs font-semibold transition-colors cursor-pointer"
+                              style={{ backgroundColor: '#2d5a9e', color: '#fff', borderRadius: '8px', padding: '6px 14px', border: 'none' }}
                             >
                               Edit
                             </button>
                             <button
                               onClick={() => handleDelete(product.id)}
-                              className="bg-red-600 hover:bg-red-500 text-white text-xs font-semibold px-3 py-1.5 rounded-lg transition-colors cursor-pointer"
+                              className="text-xs font-semibold transition-colors cursor-pointer"
+                              style={{ backgroundColor: 'transparent', color: '#1a2744', border: '2px solid #1a2744', borderRadius: '8px', padding: '6px 14px' }}
                             >
                               Delete
                             </button>
@@ -280,69 +285,69 @@ export default function Products() {
       {/* Add / Edit Form Modal Overlay */}
       {showForm && (
         <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4">
-          <div className="bg-slate-800 border border-slate-700 w-full max-w-lg rounded-2xl shadow-2xl p-6 relative overflow-y-auto max-h-[90vh]">
-            <h3 className="text-2xl font-bold mb-4">{editingProduct ? 'Edit Product' : 'Add Product'}</h3>
+          <div className="w-full max-w-lg shadow-2xl p-6 relative overflow-y-auto max-h-[90vh] text-slate-800" style={{ backgroundColor: '#fdf0f0', borderRadius: '16px' }}>
+            <h3 className="text-2xl font-bold mb-4" style={{ color: '#1a2744' }}>{editingProduct ? 'Edit Product' : 'Add Product'}</h3>
             
             {error && (
-              <div className="bg-red-950/40 border border-red-800 text-red-400 px-4 py-2.5 rounded-xl mb-4 text-sm font-semibold">
+              <div className="bg-red-100 border border-red-200 text-red-700 px-4 py-2.5 rounded-xl mb-4 text-sm font-semibold">
                 {error}
               </div>
             )}
 
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
-                <label className="block text-sm font-semibold mb-1">Product Name *</label>
+                <label className="block text-sm font-semibold mb-1" style={{ color: '#1a2744' }}>Product Name *</label>
                 <input
                   type="text"
                   required
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                   placeholder="e.g. Acetone"
-                  className="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                  className="w-full border border-slate-300 rounded-xl px-4 py-2.5 focus:outline-none focus:border-[#1a2744] bg-white text-slate-800"
                 />
               </div>
 
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-sm font-semibold mb-1">SKU Code</label>
+                  <label className="block text-sm font-semibold mb-1" style={{ color: '#1a2744' }}>SKU Code</label>
                   <input
                     type="text"
                     value={formData.sku}
                     onChange={(e) => setFormData({ ...formData, sku: e.target.value })}
                     placeholder="e.g. ACE001"
-                    className="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                    className="w-full border border-slate-300 rounded-xl px-4 py-2.5 focus:outline-none focus:border-[#1a2744] bg-white text-slate-800"
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-semibold mb-1">Category</label>
+                  <label className="block text-sm font-semibold mb-1" style={{ color: '#1a2744' }}>Category</label>
                   <input
                     type="text"
                     value={formData.category}
                     onChange={(e) => setFormData({ ...formData, category: e.target.value })}
                     placeholder="e.g. Solvents"
-                    className="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                    className="w-full border border-slate-300 rounded-xl px-4 py-2.5 focus:outline-none focus:border-[#1a2744] bg-white text-slate-800"
                   />
                 </div>
               </div>
 
               <div>
-                <label className="block text-sm font-semibold mb-1">Description</label>
+                <label className="block text-sm font-semibold mb-1" style={{ color: '#1a2744' }}>Description</label>
                 <textarea
                   value={formData.description}
                   onChange={(e) => setFormData({ ...formData, description: e.target.value })}
                   placeholder="Details and specifications..."
                   rows="3"
-                  className="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                  className="w-full border border-slate-300 rounded-xl px-4 py-2.5 focus:outline-none focus:border-[#1a2744] bg-white text-slate-800"
                 />
               </div>
 
               <div className="grid grid-cols-3 gap-4">
                 <div>
-                  <label className="block text-sm font-semibold mb-1">Base Unit</label>
+                  <label className="block text-sm font-semibold mb-1" style={{ color: '#1a2744' }}>Base Unit</label>
                   <select
                     value={formData.base_unit}
                     onChange={(e) => setFormData({ ...formData, base_unit: e.target.value })}
-                    className="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2.5 focus:outline-none focus:ring-2 focus:ring-indigo-500 text-sm"
+                    className="w-full border border-slate-300 rounded-xl px-3 py-2.5 focus:outline-none focus:border-[#1a2744] bg-white text-slate-800 text-sm"
                   >
                     <option value="g">g (Grams)</option>
                     <option value="mL">mL (Milliliters)</option>
@@ -350,7 +355,7 @@ export default function Products() {
                   </select>
                 </div>
                 <div className="col-span-2">
-                  <label className="block text-sm font-semibold mb-1">Base Price / Unit (INR)</label>
+                  <label className="block text-sm font-semibold mb-1" style={{ color: '#1a2744' }}>Base Price / Unit (INR)</label>
                   <input
                     type="number"
                     step="0.000001"
@@ -359,16 +364,16 @@ export default function Products() {
                     value={formData.base_price_per_unit}
                     onChange={(e) => setFormData({ ...formData, base_price_per_unit: e.target.value })}
                     placeholder="0.00"
-                    className="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                    className="w-full border border-slate-300 rounded-xl px-4 py-2.5 focus:outline-none focus:border-[#1a2744] bg-white text-slate-800"
                   />
                 </div>
               </div>
-              <p className="text-[11px] text-slate-400">
-                💡 **Base Unit Info**: g = weight, mL = volume, item = count. Price is per 1 unit of <span className="font-bold text-indigo-400">{formData.base_unit}</span>.
+              <p className="text-[11px]" style={{ color: '#2d5a9e' }}>
+                💡 **Base Unit Info**: g = weight, mL = volume, item = count. Price is per 1 unit of <span className="font-bold">{formData.base_unit}</span>.
               </p>
 
               <div>
-                <label className="block text-sm font-semibold mb-1">Initial Stock Quantity</label>
+                <label className="block text-sm font-semibold mb-1" style={{ color: '#1a2744' }}>Initial Stock Quantity</label>
                 <input
                   type="number"
                   step="0.000001"
@@ -376,21 +381,23 @@ export default function Products() {
                   value={formData.stock_quantity}
                   onChange={(e) => setFormData({ ...formData, stock_quantity: e.target.value })}
                   placeholder="0.00"
-                  className="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                  className="w-full border border-slate-300 rounded-xl px-4 py-2.5 focus:outline-none focus:border-[#1a2744] bg-white text-slate-800"
                 />
               </div>
 
-              <div className="flex items-center justify-end space-x-3 mt-6 pt-4 border-t border-slate-700">
+              <div className="flex items-center justify-end space-x-3 mt-6 pt-4 border-t border-slate-300">
                 <button
                   type="button"
                   onClick={() => setShowForm(false)}
-                  className="bg-slate-700 hover:bg-slate-650 text-slate-200 px-5 py-2.5 rounded-xl font-semibold cursor-pointer"
+                  className="px-5 py-2.5 font-semibold cursor-pointer"
+                  style={{ backgroundColor: 'transparent', border: '2px solid #1a2744', color: '#1a2744', borderRadius: '10px' }}
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
-                  className="bg-indigo-600 hover:bg-indigo-500 text-white px-5 py-2.5 rounded-xl font-semibold cursor-pointer"
+                  className="px-5 py-2.5 font-semibold cursor-pointer"
+                  style={{ backgroundColor: '#1a2744', color: '#fff', borderRadius: '10px' }}
                 >
                   Save
                 </button>

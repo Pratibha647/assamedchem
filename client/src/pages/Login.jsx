@@ -37,15 +37,15 @@ export default function Login() {
   };
 
   return (
-    <div className="min-h-[80vh] flex items-center justify-center px-4 py-12 sm:px-6 lg:px-8">
-      <div className="max-w-md w-full space-y-8 bg-white dark:bg-slate-800 p-8 rounded-2xl shadow-xl border border-slate-100 dark:border-slate-700 transition-all duration-300">
+    <div className="min-h-screen flex items-center justify-center px-4 py-12 sm:px-6 lg:px-8" style={{ background: 'linear-gradient(135deg, #1a2744, #2d5a9e)' }}>
+      <div className="w-full space-y-8 bg-white p-10 rounded-[20px] shadow-xl transition-all duration-300" style={{ maxWidth: '420px' }}>
         
         {/* Header */}
         <div className="text-center">
-          <h2 className="text-4xl font-extrabold tracking-tight text-indigo-600 dark:text-indigo-400">
+          <h2 className="tracking-tight" style={{ color: '#1a2744', fontSize: '2rem', fontWeight: '800' }}>
             AasaMedChem
           </h2>
-          <p className="mt-2 text-sm text-slate-500 dark:text-slate-400 font-medium">
+          <p className="mt-2 text-sm font-medium" style={{ color: '#2d5a9e' }}>
             Inventory Management System
           </p>
         </div>
@@ -54,7 +54,7 @@ export default function Login() {
         <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
           <div className="space-y-4 rounded-md shadow-sm">
             <div>
-              <label htmlFor="email-address" className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1">
+              <label htmlFor="email-address" className="block text-sm font-semibold text-slate-750 mb-1">
                 Email Address
               </label>
               <input
@@ -64,12 +64,13 @@ export default function Login() {
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="appearance-none rounded-xl relative block w-full px-4 py-3 border border-slate-300 dark:border-slate-600 placeholder-slate-400 text-slate-900 dark:text-white bg-slate-50 dark:bg-slate-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm transition-colors duration-200"
+                className="appearance-none block w-full outline-none sm:text-sm transition-colors duration-200 focus:border-[#2d5a9e]"
+                style={{ border: '2px solid #d4d8e0', borderRadius: '10px', padding: '10px 14px', color: '#1a2744', backgroundColor: '#fff' }}
                 placeholder="Enter email"
               />
             </div>
             <div>
-              <label htmlFor="password" className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1">
+              <label htmlFor="password" className="block text-sm font-semibold text-slate-750 mb-1">
                 Password
               </label>
               <input
@@ -79,7 +80,8 @@ export default function Login() {
                 required
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="appearance-none rounded-xl relative block w-full px-4 py-3 border border-slate-300 dark:border-slate-600 placeholder-slate-400 text-slate-900 dark:text-white bg-slate-50 dark:bg-slate-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm transition-colors duration-200"
+                className="appearance-none block w-full outline-none sm:text-sm transition-colors duration-200 focus:border-[#2d5a9e]"
+                style={{ border: '2px solid #d4d8e0', borderRadius: '10px', padding: '10px 14px', color: '#1a2744', backgroundColor: '#fff' }}
                 placeholder="Enter password"
               />
             </div>
@@ -87,7 +89,7 @@ export default function Login() {
 
           {/* Error Message */}
           {error && (
-            <div className="text-sm font-semibold text-red-600 bg-red-50 dark:bg-red-950/30 px-4 py-2.5 rounded-lg text-center border border-red-200 dark:border-red-900/50">
+            <div className="text-sm font-semibold px-4 py-2.5 rounded-lg text-center border border-red-200" style={{ color: '#c62828', backgroundColor: '#fff5f5' }}>
               {error}
             </div>
           )}
@@ -96,7 +98,8 @@ export default function Login() {
             <button
               type="submit"
               disabled={loading}
-              className="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-semibold rounded-xl text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 disabled:opacity-50 transition-all duration-200 shadow-lg shadow-indigo-600/20 hover:shadow-indigo-700/30 cursor-pointer"
+              className="w-full flex justify-center disabled:opacity-50 transition-all duration-200"
+              style={{ background: '#1a2744', color: '#fff', padding: '14px', borderRadius: '12px', fontWeight: '600', fontSize: '1rem', border: 'none', cursor: 'pointer' }}
             >
               {loading ? 'Signing in...' : 'Sign In'}
             </button>
@@ -104,16 +107,16 @@ export default function Login() {
         </form>
 
         {/* Demo Credentials Box */}
-        <div className="mt-6 p-4 rounded-xl bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 text-xs text-slate-500 dark:text-slate-400">
-          <p className="font-bold text-slate-700 dark:text-slate-300 mb-2">Test Credentials</p>
+        <div className="mt-6 text-xs text-slate-500" style={{ background: '#fdf0f0', borderLeft: '4px solid #e8a0b0', padding: '12px', borderRadius: '8px' }}>
+          <p className="font-bold mb-2" style={{ color: '#2d5a9e' }}>Test Credentials</p>
           <div className="space-y-1">
             <div className="flex justify-between">
               <span>Admin:</span>
-              <code className="text-indigo-600 dark:text-indigo-400 font-mono">admin@aasa.com / admin123</code>
+              <code className="font-mono" style={{ color: '#2d5a9e' }}>admin@aasa.com / admin123</code>
             </div>
             <div className="flex justify-between">
               <span>Seller:</span>
-              <code className="text-indigo-600 dark:text-indigo-400 font-mono">seller@aasa.com / seller123</code>
+              <code className="font-mono" style={{ color: '#2d5a9e' }}>seller@aasa.com / seller123</code>
             </div>
           </div>
         </div>
